@@ -838,6 +838,27 @@ Service
         ->methodA()
         ->methodB();',
             ],
+            [
+                '<?php
+
+                    function foo(): array
+                    {
+                        ($bar = new Bar())
+                            ->qux()
+                        ;
+                    }
+
+                ?>',
+                '<?php
+
+                    function foo(): array
+                    {
+                        ($bar = new Bar())
+                            ->qux();
+                    }
+
+                ?>',
+            ],
         ];
     }
 
